@@ -1,0 +1,61 @@
+.img-container {
+    filter: blur(5px);
+    /* Removes the white edges for the blurred background image*/
+    position: fixed;
+    left: -5px;
+    top:-5px;
+    bottom:-5px;
+    right: -5px;
+    margin:-5px;
+}
+
+.row {
+    /* Makes the row to expand the entire viewport height */
+    height: 100vh;
+}
+
+.side-column {
+    padding: 8%;
+    /* The width for two side columns will be a total of 75% */
+    width: 37.5%;
+}
+
+.center-column {
+    width: 25%;
+    background-color: white;
+}
+
+.side-column, .center-column {
+    /* Displaying the columns as grid and aligning the content as center will give us vertically center aligned components */
+    display: grid;
+    align-content: center;
+    /* To get the column layers above the background */
+    z-index: 10;
+}
+
+.vertical-logo {
+    /* Aligning the logo in center, the image is slightly off towards the left */
+    margin-left:10px;
+    width: 100%;
+    padding: 35px;
+}
+
+.copyright {
+    font-size: 12px;
+    color: #274686;
+}
+
+.shipping-col {
+    /* This class will be added on when login column is hidden, to expand the shipping column */
+    width: 75%;
+}
+
+@media only screen and (max-width: 1058px) {
+    /* For mobile phones and tablets: */
+    [class*="side-column"] {
+        width: 100%;
+    }
+    [class*="center-column"] {
+        width: 100%;
+    }
+}

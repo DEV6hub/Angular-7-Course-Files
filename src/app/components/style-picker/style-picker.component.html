@@ -1,0 +1,14 @@
+<div class="container-fluid pick-style-container">
+  <div class="row pick-style-title-row">
+    <div class="col pick-style-title">Choose a shirt style</div>
+  </div>
+  <div class="row pick-style-row">
+    <div class="col" *ngFor="let style of styles">
+      <div class="pick-style-img-container" (click)="pickStyle(style)">
+        <img class="img-fluid" src="{{getStyleImagePath(style)}}" alt="shirt-style">
+        <div class="style-selected" [hidden]="!isStyleSelected(style)"></div>
+      </div>
+      <div class="pick-style-description">{{style.imgDescription}}</div>
+    </div>
+  </div>
+</div>

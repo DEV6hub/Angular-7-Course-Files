@@ -1,0 +1,34 @@
+<div class="shopping-cart-container">
+  <form [formGroup]="shoppingCartForm" (ngSubmit)=goToShipping() novalidate>
+    <div class="row shopping-cart-header">
+      <div class="col-xs-8 shopping-cart-title">Shopping Cart</div>
+      <div class="col-xs-3 shopping-cart-btn" (click)="closeShoppingCart()">
+        <div class="row shopping-cart-btn-row">
+          <div class="icon-basket"></div>
+          <div class="items-counter">{{shoppingCartItems?.length || 0}}</div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div *ngIf="shoppingCartItems?.length > 0">
+      <div formArrayName="shoppingItems">
+        <app-shopping-cart-item   [shoppingCartFormItems]="shoppingCartForm.controls.shoppingItems"  *ngFor="let shoppingItem of shoppingCartItems; let i = index;"
+          (formReady)="formInitialized(i, $event)"
+          [item]="shoppingItem" 
+          (removeItem)="removeItem($event)"
+          (quantityChange)=changeQuantity($event)></app-shopping-cart-item>
+      </div>
+    </div>
+    <div *ngIf="(shoppingCartItems?.length) === 0" class="no-items-message">
+      No items added
+    </div>
+    <div class="float-right" *ngIf="shoppingCartItems?.length > 0">
+      <strong><span class="subtotal">Subtotal: </span><span class="subtotal-price">{{subtotal | currency}}</span></strong>
+    </div><br>
+    <div class="float-right" *ngIf="shoppingCartItems?.length > 0">
+      <button type="submit" class="primary-btn" [disabled]="shoppingCartForm.invalid">GO TO SHIPPING</button>
+    </div>
+  </form>
+</div>
+
+

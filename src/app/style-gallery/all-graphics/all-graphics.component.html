@@ -1,0 +1,13 @@
+<router-outlet></router-outlet>
+<div class="card-deck">
+  <div  [@flyInOut]="'in'" *ngFor="let graphic of graphics">
+  <div class="card border-dark mb-3" style="width: 18rem;">
+    <a href="#" [routerLink]="['./graphic', graphic.fileName]">
+      <img class="card-img-top" src="../../../assets/images/graphics/{{graphic.fileName}}"  alt="{{graphic.fileName}}">
+    </a>
+    <div class="card-body text-dark">
+      <h5 class="card-title">{{graphic.name}}</h5>
+    </div>
+  </div>
+</div>
+</div>

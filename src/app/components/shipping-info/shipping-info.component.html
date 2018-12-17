@@ -1,0 +1,105 @@
+<div class="shipping-info-container">
+  <form #f="ngForm" (ngSubmit)="goToPayment()" novalidate>
+    <div class="row shipping-info-header">
+      <div class="shipping-info-title">Shipping Info</div>
+    </div>
+    <hr>
+    <div>
+      <div class="row">
+        <div class="col">
+          <label for="name">Name</label>
+          <input type="text" id="name" required #firstName="ngModel" name="name" class="form-control" [(ngModel)]="model.name" placeholder="Johnny Appleseed">
+          <div class="validation-error" *ngIf="firstName.errors && (firstName.dirty || firstName.touched)">
+            <p *ngIf="firstName.errors.required">First name is required</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="email">Email</label>
+          <input type="email" id="email" required #email="ngModel" pattern="[^ @]*@[^ @]*" name="email" class="form-control" [(ngModel)]="model.email"
+            placeholder="johnny5@nova-industries.com">
+          <div class="validation-error" *ngIf="email.errors && (email.dirty || email.touched)">
+            <p *ngIf="email.errors.required">Email is required</p>
+            <p *ngIf="email.errors.pattern">Email must contain at least the @ character</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" minlength=10 maxlength=10 required #phone="ngModel" pattern="^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$"
+            class="form-control" [(ngModel)]="model.phone" placeholder="555-123-1234">
+          <div class="validation-error" *ngIf="phone.errors && (phone.dirty || phone.touched)">
+            <p *ngIf="phone.errors.required">Phone is required</p>
+            <p *ngIf="phone.errors.pattern">Phone must contain numbers</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="address1">Address 1</label>
+          <input type="text" id="address1" required #address1="ngModel" name="address1" class="form-control" [(ngModel)]="model.address1"
+            placeholder="123 Anywhere Ave.">
+          <div class="validation-error" *ngIf="address1.errors && (address1.dirty || address1.touched)">
+            <p *ngIf="address1.errors.required">Address 1 field is required</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="address2">Address 2</label>
+          <input type="text" id="address2" #address2="ngModel" name="address2" class="form-control" [(ngModel)]="model.address2" placeholder="Suite 101">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="city">City</label>
+          <input type="text" id="city" class="form-control" required #city="ngModel" name="city" [(ngModel)]="model.city" placeholder="Toronto">
+          <div class="validation-error" *ngIf="city.errors && (city.dirty || city.touched)">
+            <p *ngIf="city.errors.required">City is required</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="country">Country</label>
+          <br>
+          <select class="form-control" id="country" required #country="ngModel" name="country" (change)="selectCountry($event.currentTarget.value)" [(ngModel)]="model.country">
+            <option [ngValue]="" selected="selected">Select Option</option>
+            <option *ngFor="let country of countries" [value]="country" (click)="selectCountry(country)">{{country}}</option>
+          </select>
+          <div class="validation-error" *ngIf="country.errors && (country.dirty || country.touched)">
+            <p *ngIf="country.errors.required">Country is required</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <label for="province">Province/State</label>
+          <br>
+          <select class="form-control" id="province" required #province="ngModel" name="province" [(ngModel)]="model.province" (change)="selectState($event.currentTarget.value)">
+            <option value="" selected="selected">Select</option>
+            <option *ngFor="let province of states[model.country]" [value]="province" (click)="selectState(province)">{{province}}</option>
+          </select>
+          <div class="validation-error" *ngIf="province.errors && (province.dirty || province.touched)">
+            <p *ngIf="province.errors.required">Province is required</p>
+          </div>
+        </div>
+        <div class="col-6">
+          <label for="postal">Postal Code</label>
+          <input type="text" id="postal" name="postal" required #postal="ngModel" [(ngModel)]="model.postal" pattern="^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$"
+            class="form-control" placeholder="L5N 2N5">
+          <div class="validation-error" *ngIf="postal.errors && (postal.dirty || postal.touched)">
+            <p *ngIf="postal.errors.required">Postal is required</p>
+            <p *ngIf="postal.errors.pattern">Postal format is LNL NLN, L - letter, N - number</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="float-right go-to-payment">
+      <button type="button" class="primary-danger-btn" (click)="cancel()">Cancel</button>
+      <button type="submit" class="primary-btn" [disabled]="f.invalid">GO TO PAYMENT</button>
+    </div>
+  </form>
+</div>

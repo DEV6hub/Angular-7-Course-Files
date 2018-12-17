@@ -1,0 +1,41 @@
+.payment-complete-container {
+    display: flex;
+    background-color: #F0F0F0;
+    width: 1155px;
+    height: 100%;
+    overflow: auto;
+    justify-items: center;
+    align-items: center;
+}
+
+.payment-complete-shirt-icon {
+    width: 114px;
+    height: 114px;
+    border-radius: 50%;
+    background-color: #10A2DC;
+    justify-content: center;
+    display: flex;
+}
+
+.payment-complete-title {
+    font-family: 'Montserrat';
+    font-weight: bolder;
+    font-size: 26px;
+    text-align: center;
+    color: #274686;
+}
+
+.payment-complete-shirt-icon .img-fluid {
+    width: 79px;
+}
+
+.centered {
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    justify-items: center;
+}
+
+.item {
+    margin-bottom: 23px;
+}

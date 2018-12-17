@@ -1,0 +1,21 @@
+
+.text-picker-container {
+    background-color: #FFFFFF;
+}
+
+.text-picker-label {
+    color: #10A2DC;
+    font-size: 14px;
+    font-weight: bold;
+    padding-bottom: 15px;
+    margin-bottom: 0;
+}
+
+#font-picker {
+    font-weight: normal;
+}
+
+.form-groups {
+    padding-left: 15px;
+    padding-right: 15px;
+}

@@ -1,0 +1,52 @@
+<!-- 
+<div class="container-fluid text-picker-container">
+  <div class="row text-picker-title-row">
+    <div class="col">Enter text</div>
+  </div>
+  
+  <div class="row">
+    <div class="col">
+      <input type="text">
+    </div>
+  </div>
+  <hr class="no-margin-bottom">
+  <div class="row">
+    <div class="col">Change font</div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <select name="font-picker" id="font-picker" class="form-control form-control-sm" value="editableShirt.text.font" (change)="changeTextFont(font)">
+        <option value="">Select option</option>
+        <option *ngFor="let font of fonts" value="font.font">{{font.name}}</option>
+      </select>
+    </div>
+  </div>
+  <hr class="no-margin-bottom">
+  <div class="row">
+    <app-colour-picker [selectedColour]="editableShirt.text.colour"
+      [title]="textColourTitle"></app-colour-picker>
+  </div>
+</div> -->
+
+<div class="container-fluid text-picker-container">
+  
+<div class="form-groups">
+    <div class="form-group">
+      <label for="txt" class="text-picker-label">Enter text</label>
+      <input type="text" name="txt" id="txt" class="form-control" [value]="editableShirt.text.value" (input)="changeShirtText($event.target.value)">
+    </div>
+    <hr class="no-margin-bottom">
+    <div class="form-group">
+      <label for="font-picker" class="text-picker-label">Change font</label><br>
+      <select name="font-picker" id="font-picker" class="form-control form-control-sm" [ngModel]="editableShirt.text.font.name" (change)="changeTextFont($event.target.value)">
+          <option value="">Select option</option>
+          <option *ngFor="let font of fonts" value="{{font.font}}">{{font.name}}</option>
+        </select>
+    </div>
+    <hr class="no-margin-bottom">
+</div>
+  <div class="row">
+    <app-colour-picker [(selectedColour)]="editableShirt.text.colour"
+      [title]="textColourTitle"></app-colour-picker>
+  </div>
+</div>

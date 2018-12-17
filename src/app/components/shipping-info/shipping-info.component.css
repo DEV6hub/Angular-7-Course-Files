@@ -1,0 +1,36 @@
+.shipping-info-container {
+    width: 385px;
+    background-color: #F0F0F0;
+    padding-left: 25px;
+    padding-right: 25px;
+    height: 100%;
+    overflow: auto;
+}
+
+.shipping-info-title {
+    color: #274686;
+    font-size: 26px;
+    font-weight: 800;
+    margin-right: 84px;
+    margin-left: 15px;
+}
+
+.shipping-info-header {
+    margin-top: 22px;
+}
+
+label {
+    color:#888888;
+}
+
+.form-control {
+    border: 1px solid #CDCDCD;
+    border-radius: 4px;
+    height: 48px !important;
+    color: #10A2DC;
+    padding: 15px;
+}
+
+.go-to-payment {
+    margin-top: 10px;
+}

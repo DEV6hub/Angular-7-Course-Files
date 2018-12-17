@@ -1,0 +1,51 @@
+
+.pick-style-container {
+    background-color: #FFFFFF;
+}
+
+.pick-style-title {
+    color: #10A2DC;
+    font-size: 14px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    font-weight: bold;
+}
+
+.pick-style-row, .pick-style-title-row {
+    margin: 0;
+}
+
+.pick-style-img-container {
+    border: 1px solid #DDDDDD;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    max-width: 147px;
+    max-height: 175px;
+    margin-bottom: 5px;
+    position: relative;
+}
+
+.pick-style-img-container:hover {
+    border: 2px solid #10A2DC;
+    padding: 9px;
+}
+
+.pick-style-description {
+    font-size: 12px;
+    color: #444444;
+    font-weight: bold;
+    text-align: center;
+}
+
+.style-selected {
+    background-color: #10A2DC;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    right: 8px;
+    bottom: 8px;
+    position: absolute;
+    content: url('../../../assets/images/iconmonstr-check-mark-1.svg');
+    padding: 5px;
+}

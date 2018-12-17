@@ -1,0 +1,14 @@
+<div class="container-fluid pick-colour-container">
+    <div class="row pick-colour-title-row">
+      <div class="col pick-colour-title">{{title}}</div>
+    </div>
+    <div class="row pick-colour-row">
+      <div *ngFor="let colour of colours">
+        <div class="colour-box" [ngStyle]="{'background-color': colour.value}" (click)="pickColour(colour)">
+          <div class="colour-selected" [hidden]="!showSelected(colour)"></div>
+        </div>
+        <div class="colour-name">{{colour.name}}</div>
+      </div>
+    </div>
+  </div>
+

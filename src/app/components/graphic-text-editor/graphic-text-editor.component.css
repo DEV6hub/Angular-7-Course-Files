@@ -1,0 +1,13 @@
+.btn-circle {
+    width: 22px;
+    height: 22px;
+    /* padding: 6px 0px; */
+    border-radius: 15px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.42857;
+    float: right;
+    background-color: #10A2DC;
+    color: #FFFFFF;
+    outline: none;
+}

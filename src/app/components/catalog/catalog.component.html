@@ -1,0 +1,85 @@
+<div class="base-container">
+  <nav class="navbar navbar-light">
+    <div class="row nav-toggle-btn">
+      <button class="navbar-toggler mr-2">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="divider"></div>
+      <a class="navbar-brand" href="#">
+        <img id="logo-image" alt="Shirtastic" src="{{logoPath}}">
+      </a>
+    </div>
+    <div class="row cart-btn-container">
+        <button type="button" class="primary-btn nav-btn" routerLink='/tshirtsDatabase'>TSHIRTS DATABASE</button>
+        <button type="button" class="primary-btn nav-btn" routerLink='/allStyleOptions'>STYLE OPTIONS</button>
+        <input type="text" class="design-name-input nav-btn" [value]="designName" (input)="designName=$event.target.value" placeholder="design name" [hidden]="!showDesignShirt">
+        <div class="validation-error">
+          <p *ngIf="designName && designName == ''">Design name is required</p>
+        </div>
+        <button type="button" class="primary-btn nav-btn" (click)="openNewDesign()" [hidden]="showDesignShirt">NEW DESIGN</button>
+        <button type="button" class="primary-btn nav-btn" (click)="saveDesign()" [hidden]="!showDesignShirt">SAVE DESIGN</button>
+        <div class="divider"></div>
+        <div class="row cart-btn" (click)="toggleShoppingCart()">
+            <div class="icon-basket"></div>
+            <div class="items-counter">{{shoppingCartItemsCount}}</div>
+          </div>
+    </div> 
+  </nav>
+  <div class="container" [hidden]="showDesignShirt">
+    <ngb-tabset #catalogTabs class="catalog-tabs" (tabChange)="onTabChanged($event)">
+      <ngb-tab title="All Designs" id="tab-all-designs">
+        <ng-template ngbTabContent>
+          <div class="row">
+            <app-shirt *ngFor="let shirt of shirts" [shirt]="shirt"></app-shirt>
+            <div *ngIf="designsCount === 0" class="no-designs-message">
+              No designs added
+            </div>
+          </div>
+        </ng-template>
+      </ngb-tab>
+      <ngb-tab title="Men" id="tab-men-designs">
+        <ng-template ngbTabContent>
+          <div class="row">
+            <app-shirt *ngFor="let shirt of shirts | filterByGender:'M'" [shirt]="shirt"></app-shirt>
+            <div *ngIf="designsCount === 0" class="no-designs-message">
+              No designs added
+            </div>
+          </div>
+        </ng-template>
+      </ngb-tab>
+      <ngb-tab title="Women" [disabled]="false" id="tab-women-designs">
+        <ng-template ngbTabContent>
+          <div class="row">
+            <app-shirt *ngFor="let shirt of shirts | filterByGender:'F'" [shirt]="shirt"></app-shirt>
+            <div *ngIf="designsCount === 0" class="no-designs-message">
+              No designs added
+            </div>
+          </div>
+        </ng-template>
+      </ngb-tab>
+      <ngb-tab [disabled]="true">
+          <ng-template ngbTabTitle>Showing {{designsCount}} Designs</ng-template>
+      </ngb-tab>
+    </ngb-tabset>
+    
+  </div>
+    <div [hidden]="!showDesignShirt">
+      <app-design-shirt></app-design-shirt>
+    </div>
+</div>
+<div class="overlay" [hidden]="!showShoppingCart && !showShippingInfo && !showPaymentComplete" (click)="closeAllPanels()"></div>
+<div #shoppingCartPanel class="shopping-cart-panel" [hidden]="!showShoppingCart">
+  <app-shopping-cart></app-shopping-cart>
+    <div class="shopping-cart-overlay" [hidden]="showShoppingCart && !showShippingInfo" (click)="closeAllButShoppingCart()"></div>
+</div>
+<div #shippingInfoPanel class="shipping-info-panel" [hidden]="!showShippingInfo">
+  <app-shipping-info></app-shipping-info>
+  <div class="shipping-info-overlay" [hidden]="showShoppingCart && showShippingInfo && !showPaymentMethod" (click)="closePaymentMethodPanel()"></div>
+</div>
+<div #paymentMethodPanel class="payment-method-panel" [hidden]="!showPaymentMethod">
+  <app-payment-method (checkedOut)="checkedOut()"></app-payment-method>
+</div>
+<div class="payment-complete-panel" [hidden]="!showPaymentComplete">
+  <app-payment-complete (close)="closePaymentComplete()"></app-payment-complete>
+</div>
+

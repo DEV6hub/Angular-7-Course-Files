@@ -1,0 +1,71 @@
+<div class="container-fluid design-container">
+  <div class="design-background">
+    <img src="{{bgPath}}" alt="design_background" class="bg-image">
+  </div>
+  <div class="content">
+    <div class="design-col">
+      <div class="card design-card">
+        <div class="design-tabs-container">
+          <ul class="nav design-tabs">
+            <li class="nav-item">
+              <a class="nav-link" [ngClass]="{'active': activeTab === 1}" (click)="toggleTab(1)">
+                <div class="round-icon">
+                  <!-- styles image goes here -->
+                </div>
+                <div class="nav-link-text">Styles</div>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [ngClass]="{'active': activeTab === 2}" (click)="toggleTab(2)">
+                <div class="round-icon">
+                  <img src="../../../assets/images/icon-paint.svg" alt="paint" class="round-icon-img">
+                </div>
+                <div class="nav-link-text">Colours</div>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [ngClass]="{'active': activeTab === 3}" (click)="toggleTab(3)">
+                <div class="round-icon">
+                  <img src="../../../assets/images/icon-image.svg" alt="image" class="larger-size-adjust round-icon-img">
+                </div>
+                <div class="nav-link-text">Graphics</div>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [ngClass]="{'active': activeTab === 4}" (click)="toggleTab(4)">
+                <div class="round-icon">
+                  <img src="../../../assets/images/icon-text.svg" alt="text" class="round-icon-img">
+                </div>
+                <div class="nav-link-text">Text</div>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="tab-content">
+          <div class="tab-pane" id="1" [ngClass]="{'active': activeTab === 1}">
+            <app-style-picker></app-style-picker>
+          </div>
+          <div class="tab-pane" id="2" [ngClass]="{'active': activeTab === 2}">
+            <app-colour-picker [(selectedColour)]="editableShirt.shirtColour" [title]="colourPickerTitle"></app-colour-picker>
+          </div>
+          <div class="tab-pane" id="3" [ngClass]="{'active': activeTab === 3}">
+            <app-graphics-picker (changeGraphic)="changeGraphic($event)"
+            (changeGraphicColour)="changeGraphicColour($event)"></app-graphics-picker>
+          </div>
+          <div class="tab-pane" id="4" [ngClass]="{'active': activeTab === 4}">
+            <app-text-picker></app-text-picker>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="design-col">
+      <div class="card image-design">
+        <img class="img-fluid" src="{{getStyleImagePath()}}" alt="shirt design">
+        <div class="graphic-img">
+          <app-graphic-text-editor *ngIf="hasGraphic() || hasText()" #graphicEditor [textColour]="editableShirt.text.colour.value"
+            [fontFamily]="getTextFont()" [inputText]="getTextValue()" (inputTextChange)="changeTextValue($event)" [imageUrl]="getGraphicImagePath()"></app-graphic-text-editor>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

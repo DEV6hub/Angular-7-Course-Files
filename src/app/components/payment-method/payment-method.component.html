@@ -1,0 +1,83 @@
+<div class="payment-method-container">
+  <form #paymentForm="ngForm"  (ngSubmit)="checkout()" novalidate>
+    <div class="row payment-method-header">
+      <div class="payment-method-title">Payment Method</div>
+    </div>
+    <hr>
+    <div>
+      <div class="row">
+        <div class="col">
+          <label for="cardNumber">Credit Card Number</label>
+          <input type="text" id="cardNumber" class="form-control" required #cardNumber="ngModel" name="cardNumber" pattern="^\d{16}$" [(ngModel)]="model.cardNumber" placeholder="•••• •••• •••• 1234">
+           <div class="validation-error" *ngIf="cardNumber.errors && (cardNumber.dirty || cardNumber.touched)">
+            <p *ngIf="cardNumber.errors.required">Card number is required</p>
+            <p *ngIf="cardNumber.errors.pattern">Credit card must have 16 numbers</p>
+           </div> 
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <label for="expiration">Expiration</label>
+          <input type="text" id="expiration" [(ngModel)]="model.expiration" required #expiration="ngModel" name="expiration" pattern="^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$" class="form-control" placeholder="MM/YY">
+          <div class="validation-error" *ngIf="expiration.errors && (expiration.dirty || expiration.touched)">
+            <p *ngIf="expiration.errors.required">Expiration is required</p>
+            <p *ngIf="expiration.errors.pattern">Expiration must MM/YY where MM-month, YY-year</p>
+           </div>
+        </div>
+        <div class="col-6">
+          <label for="cvv">CVV</label>
+          <input type="text" id="cvv" [(ngModel)]="model.cvv" required minlength="3" maxlength="3" #cvv="ngModel" name="cvv" class="form-control" placeholder="123">
+          <div class="validation-error" *ngIf="cvv.errors && (cvv.dirty || cvv.touched)">
+            <p *ngIf="cvv.errors">CVV 3 digit number is required</p> 
+           </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div>
+      <div class="row">
+        <div class="col price">
+          <div>
+            Subtotal:
+          </div>
+          <div class="dotted-line"></div>
+          <div>
+            <strong>{{subtotal | currency}}</strong>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col price">
+            <div>
+                Tax:
+              </div>
+              <div class="dotted-line"></div>
+              <div>
+                <strong>{{tax | currency}}</strong>
+              </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col price">
+            <div>
+                Shipping:
+              </div>
+              <div class="dotted-line"></div>
+              <div>
+                <strong>{{shipping | currency}}</strong>
+              </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col price total-row">
+        <div><strong>Total:</strong></div>
+        <div class="total-price"><strong>{{total | currency}}</strong></div>
+      </div>
+    </div>
+    <div class="float-right">
+      <button type="submit" class="primary-btn" [disabled]="paymentForm.invalid">CHECKOUT</button>
+    </div>
+  </form>
+</div>

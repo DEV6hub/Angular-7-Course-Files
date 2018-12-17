@@ -1,0 +1,144 @@
+.design-container {
+    padding: 0;
+    overflow: hidden;
+}
+
+.bg-image {
+    filter: blur(10px);
+    -webkit-filter: blur(10px);
+    -moz-filter: blur(10px);
+    margin: -10px -15px;
+}
+
+.round-icon {
+    outline: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    color: #FFFFFF;
+    background-color: #888888;
+    box-shadow: 0px 3px 6px #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.larger-size-adjust {
+    width: 40px !important;
+    height: 40px !important;
+}
+
+.round-icon-img {
+    width: 20px;
+    height: 20px;
+}
+
+.design-background {
+    overflow: hidden;
+    position: fixed;
+    opacity: 0.95;
+}
+
+.content {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: 35% 65%;
+    grid-template-rows: 100%;
+}
+
+.design-col {
+    align-self: center;
+}
+
+.design-card {
+    max-width: 385px;
+    height: 620px;
+    align-items: center;
+    padding: 0;
+    border: none;
+    border-radius: 10px;
+    background-color: #444444;
+    overflow: auto;
+}
+
+.design-tabs-container {
+    width: 100%;
+}
+
+.design-tabs {
+    justify-content: center;
+}
+
+.design-tabs li .nav-link{
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    color: #CDCDCD !important;
+    border-style: none;
+    cursor: pointer;
+    justify-items: center;
+    align-items: center;
+    padding-top: 23px;
+    padding-bottom: 16px;
+    display: grid;
+}
+
+.design-tabs li .nav-link.active {
+    color: #FFFFFF !important;
+    background-color: transparent !important;
+    border-bottom: 3px solid #10A2DC !important;
+}
+
+.design-tabs li .nav-link.active .round-icon {
+    background-color: #16A1DC;
+}
+
+.nav-link-text {
+    color: #888888;
+    margin-top: 6px;
+}
+
+.design-tabs li .nav-link.active .nav-link-text {
+    color: #FFFFFF;
+}
+
+.tab-content {
+    height: 100%;
+    background-color: #FFFFFF;
+}
+
+.image-design {
+    max-width: 706px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border: none;
+    background-color: transparent;
+}
+
+.graphic-img {
+    top: 10%;
+    width: 45%;
+    /* border: 1px solid #DDDDDD; */
+    height: 85%;
+    width: 55%;
+    display: flex;
+    align-self: center;
+}
+
+.shirt-text {
+    max-width: 376px;
+    display: flex;
+    justify-items: center;
+    align-self: center;
+    font-size: 68px;
+    text-align: center;
+    border: 1px solid #DDDDDD;
+    padding-top: 37px;
+    padding-left: 13px;
+    padding-bottom: 30px;
+}
+
+.shirt-text, .graphic-img {
+    position: absolute;
+}

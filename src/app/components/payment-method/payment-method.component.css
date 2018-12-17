@@ -1,0 +1,59 @@
+.payment-method-container {
+    width: 385px;
+    background-color: #F0F0F0;
+    padding-left: 25px;
+    padding-right: 25px;
+    height: 100%;
+    overflow: auto;
+}
+
+.payment-method-container .row .col {
+    font-size: 16px;
+}
+
+label {
+    color:#888888;
+}
+
+.payment-method-title {
+    color: #274686;
+    font-size: 26px;
+    font-weight: 800;
+    margin-right: 84px;
+    margin-left: 15px;
+}
+
+.payment-method-header {
+    margin-top: 22px;
+}
+
+.dotted-line {
+    border: none;
+    border-bottom: 1px dotted #BCBCBC;
+    width: 100%;
+    margin: 0 5px;
+}
+
+.price {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 0;
+    padding-top: 0;
+    align-items: baseline;
+}
+
+.form-control {
+    border: 1px solid #CDCDCD;
+    border-radius: 4px;
+    height: 48px !important;
+    color: #10A2DC;
+    padding: 15px;
+}
+
+.total-row {
+    font-size: 24px !important;
+}
+
+.total-price {
+    color: #10A2DC;
+}

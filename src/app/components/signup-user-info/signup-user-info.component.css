@@ -1,0 +1,36 @@
+/* .primary-btn {
+    background-color: green;
+} */
+.signup-user-info-container {
+    margin-top: 20px;
+}
+.container-fluid, .row {
+    height: 100%;
+}
+.action-button {
+    min-width: 135px;
+    height: 35px;
+    border-radius: 18px;
+}
+.address-container {
+    color: #FFFFFF;
+}
+h1 {
+    color: #FFFFFF;
+}
+p {
+    font-size: 18px;
+    color: #FFFFFF;
+    font-weight: 400;
+}
+@media only screen and (max-width: 700px) {
+    /* For mobile phones and tablets: */
+    [class*="col-"] {
+        max-width: 100%;
+        flex: none;
+    }
+
+    input {
+        min-width: 200px;
+    }
+}

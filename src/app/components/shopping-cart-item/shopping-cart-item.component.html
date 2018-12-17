@@ -1,0 +1,50 @@
+<div class="card">
+  <div class="row">
+    <div class="col-4">
+      <div class="image-frame">
+        <!-- <img class="img-fluid rounded" src="{{item.shirt.imagePath}}" alt="Sample photo"> -->
+        <img [hidden]="item.shirt.savedDesign.canvasJSON !== null" class="img-fluid rounded" src="{{item.shirt.imagePath}}" alt="Sample photo">
+    
+        <div class="img-view" [hidden]="item.shirt.imagePath !== ''">
+          <img class="img-fluid" src="{{getStyleImagePath()}}"  alt="shirt design">
+          <div class="graphic-img">
+            <canvas class="canvas-container" #canvas width="380" height="380" name="canvas"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-8">
+      <div [formGroup]="shoppingItemForm" novalidate>
+        <div class="row data-rows">
+          <h4 class="card-title">{{item.shirt.name}}</h4>
+          <button type="button" class="btn-circle" (click)="removeCartItem(item)">
+            <img src="{{timesImagePath}}" alt="times">
+          </button>
+        </div>
+        <div class="row data-rows">
+          <div class="col-12">
+            <p>{{item.shirt.description}}</p>
+          </div>
+        </div>
+        <div class="row data-rows">
+            <div class="col-12">
+              <app-size-select class="size-select" formControlName="size" [selectedSize]="item.size"></app-size-select>
+              <div *ngIf="shoppingItemForm.controls.size.errors" class="validation-error">Size required</div>
+            </div>
+        </div>
+        <div class="row data-rows">
+          <div class="col-12">
+            <input type="number" formControlName="quantity"
+            class="quantity form-control form-control-sm" min="1" max="99" required
+              value="{{item.quantity}}" (input)="changeQuantity($event.target.value)">
+            <strong><span class="price-font">@ {{item.shirt.price | currency}}</span></strong>
+            <div *ngIf="shoppingItemForm.controls.quantity.errors" class="validation-error">Quantity required</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+
+  

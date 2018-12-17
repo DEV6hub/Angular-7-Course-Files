@@ -1,0 +1,225 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700,800,900');
+@import url('https://fonts.googleapis.com/css?family=Caveat|Cookie|Dancing+Script|Gloria+Hallelujah|Indie+Flower|Kaushan+Script|Libre+Barcode+39|Lora|Open+Sans|Orbitron|Pacifico|Roboto|Sacramento');
+@import "~bootstrap/dist/css/bootstrap.css";
+@import '~font-awesome/css/font-awesome.css';
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+body, html {
+    height: 100%;
+}
+
+h1, h2, h3, h4, body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+    font-size: 50pt;
+    font-weight: 800;
+    color: #545871;
+
+}
+
+h2 {
+    font-size: 30px;
+    font-weight: 900;
+    color: #FFFFFF;
+}
+
+h3 {
+    font-size: 30pt;
+    font-weight: 800;
+    color: #545871;
+}
+
+h4 {
+    font-size: 18pt;
+    font-weight: 700;
+    color: #10A2DC;
+}
+
+body {
+    font-size: 20pt;
+    font-weight: 400;
+    color: #444444;
+}
+
+label {
+    font-size: 12px;
+    font-weight: 800;
+    color: #FFFFFF;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.primary-btn {
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 9px 30px;
+    min-width: 144px;
+    background-color: #10A2DC;
+    color: #FFFFFF;
+    outline: 0;
+    border: 0;
+    transition-duration: 0.4s;
+    transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    transition-delay: 0.2s;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    margin-bottom: 5px;
+    height: 35px;
+    border-radius: 18px;
+}
+.primary-danger-btn {
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 9px 30px;
+    min-width: 144px;
+    background-color: #dc3545;
+    color: #FFFFFF;
+    outline: 0;
+    border: 0;
+    transition-duration: 0.4s;
+    transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    transition-delay: 0.2s;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    margin-bottom: 5px;
+    height: 35px;
+    border-radius: 18px;
+}
+
+.primary-btn[disabled] {
+    opacity: 0.5;
+    background-color: #10A2DC !important;
+}
+
+.primary-btn:hover {
+    background-color: #00B7FF;
+}
+
+input {
+    font-size: 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    border: 1px solid #CDCDCD;
+    border-radius: 4px;
+    height: 48px !important;
+    color: #10A2DC !important;
+    padding: 15px;
+}
+
+
+input::-webkit-input-placeholder {
+    color: #CDCDCD !important;
+    font-family: 'Montserrat';
+    font-weight: normal;
+}
+
+select {
+    color: #10A2DC !important;
+    font-size: 16px !important;
+    font-weight: bold;
+    height: 48px !important;
+}
+
+
+.primary-btn:focus, .primary-btn:active:focus, .primary-btn.active:focus {
+    outline: 0;
+}
+
+.primary-btn.active, .primary-btn:active {
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+    transition-delay: 0s;
+}
+
+/* For material tabs */
+.mat-tab-label {
+    color: #FFFFFF;
+    opacity: 1 !important;
+    font-size: 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+}
+
+.mat-tab-label:focus{
+    background-color: transparent !important;
+}
+
+.mat-ink-bar {
+    background-color:#FFFFFF !important;
+}
+
+.mat-tab-header {
+    border-bottom: 1px solid #FFFFFF;
+}
+
+/* For catalog bootstrap tabs */
+.catalog-tabs ul li .nav-link{
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    color: #CDCDCD !important;
+    border-style:none;
+}
+
+.catalog-tabs ul li .nav-link.active{
+    color: #274686 !important;
+    border-bottom: 2px solid #274686 !important;
+    background-color: transparent !important;
+}
+
+/* For home bootstrap tabs */
+.home-tabs ul li .nav-link{
+    opacity: 0.5;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    color: #FFFFFF !important;
+    border-style:none;
+}
+
+.home-tabs ul li .nav-link.active{
+    opacity: 1;
+    border-bottom: 2px solid #FFFFFF !important;
+    background-color: transparent !important;
+}
+
+.icon-basket {
+    content: url('/assets/images/icon-basket.svg');
+}
+
+.icon-edit {
+    content: url('/assets/images/icon-edit.svg');
+}
+
+.items-counter {
+    width: 30px;
+    height: 30px;
+    padding: 5px 0px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 14px;
+    background-color: #10A2DC;
+    color: #FFFFFF;
+    outline: none;
+}
+
+.validation-error {
+    color: red;
+    font-size: 12px;
+}
+
+/* this style is intended for shirt component and was placed here because
+didn't work in shirt component's style */
+eco-fab-speed-dial .eco-fab-speed-dial-container {
+    position: absolute !important;
+    left: 2px !important;
+    bottom: 2px !important;
+    margin-bottom: -40px !important;
+    margin-left: -20px !important;
+    z-index: 1039 !important;
+}
+
+.no-margin-bottom {
+    margin-bottom: 0;
+}

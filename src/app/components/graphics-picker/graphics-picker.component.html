@@ -1,0 +1,19 @@
+<div class="container-fluid graphics-picker-container">
+  <div class="row graphics-picker-title-row">
+    <div class="col graphics-picker-title">Choose a graphic</div>
+  </div>
+  
+  <div class="row graphics-picker-row">
+    <div *ngFor="let graphic of graphics">
+      <div class="graphic-box" (click)="pickGraphic(graphic)">
+        <img class="graphic-box-img img-fluid" src="{{getGraphicImagePath(graphic)}}" alt="graphic image">
+        <div class="graphic-selected" [hidden]="graphic.name !== editableShirt.graphic.name"></div>
+      </div>
+    </div>
+  </div>
+  <hr class="no-margin-bottom">
+  <div class="row">
+    <app-colour-picker [(selectedColour)]="editableShirt.graphic.colour" (selectedColourChange)="changeColour($event)"
+      [title]="graphicColourTitle"></app-colour-picker>
+  </div>
+</div>

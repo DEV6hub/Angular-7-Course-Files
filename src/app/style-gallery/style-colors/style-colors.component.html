@@ -1,0 +1,9 @@
+<div class="card-deck">
+    <div *ngFor="let colour of colours">
+    <div class="card border-dark mb-3" [ngStyle]="{'background-color': colour.value}" style="width: 18rem;">
+     <div class="card-body text-dark">
+        <h5 class="card-title">{{colour.name}}</h5>
+      </div>
+    </div>
+  </div>
+  </div>

@@ -1,0 +1,58 @@
+<div class="card text-center">
+  <div class="img-view" (click)="actionButtonsShown = !actionButtonsShown" (clickOutside)="actionButtonsShown = false">
+    <img [ngClass]="{'shifted': actionButtonsShown}" [hidden]="shirt.savedDesign.canvasJSON !== null" class="img-fluid" src="{{shirt.imagePath}}" alt="Sample photo">
+    
+    <div class="img-view" [hidden]="shirt.imagePath !== ''" [ngClass]="{'shifted fluid': actionButtonsShown}">
+      <img class="img-fluid" src="{{getStyleImagePath()}}"  alt="shirt design">
+      <div class="graphic-img" [ngClass]="{'shifted': actionButtonsShown}">
+        <canvas class="canvas-container" #canvas width="380" height="380" name="canvas"></canvas>
+      </div>
+    </div>
+
+    <!-- <div class="design-col">
+      <div class="card image-design">
+        <img class="img-fluid" src="{{getStyleImagePath()}}" alt="shirt design">
+        <div class="graphic-img">
+          <app-graphic-text-editor *ngIf="hasGraphic() || hasText()" #graphicEditor [textColour]="editableShirt.text.colour.value"
+            [fontFamily]="getTextFont()" [inputText]="getTextValue()" (inputTextChange)="changeTextValue($event)" [imageUrl]="getGraphicImagePath()"></app-graphic-text-editor>
+        </div>
+      </div>
+    </div> -->
+    <div class="actions-container" [hidden]="!actionButtonsShown">
+      <button type="button" class="primary-btn" (click)="edit(shirt)">EDIT</button>
+      <button type="button" class="primary-btn" (click)="duplicate(shirt)">DUPLICATE</button>
+      <button type="button" class="primary-btn" (click)="delete(shirt)">DELETE</button>
+    </div>
+  </div>
+  <h4 class="card-title">{{shirt.name}}</h4>
+  <p>{{shirt.description}}</p>
+  <div class="container">
+    <div class="row">
+      <div class="col-2">
+          <eco-fab-speed-dial #sizesFab [(open)]="open"
+           [direction]="direction" [animationMode]="animationMode"
+           (click)="sizesFab.open = !sizesFab.open"
+           (clickOutside)="sizesFab.open = false">
+              <eco-fab-speed-dial-trigger>
+                <div mat-fab class="trigger-btn">
+                  <div class="trigger-btn-icon icon-basket"></div>
+                </div>
+              </eco-fab-speed-dial-trigger>
+          
+              <eco-fab-speed-dial-actions>
+                  <button mat-mini-fab (click)="addToBasket(shirt, shirtSize.XSmall)" class="action-btn">XS</button>
+                  <button mat-mini-fab (click)="addToBasket(shirt, shirtSize.Small)" class="action-btn">S</button>
+                  <button mat-mini-fab (click)="addToBasket(shirt, shirtSize.Medium)" class="action-btn">M</button>
+                  <button mat-mini-fab (click)="addToBasket(shirt, shirtSize.Large)" class="action-btn">L</button>
+                  <button mat-mini-fab (click)="addToBasket(shirt, shirtSize.XLarge)" class="action-btn">XL</button>
+              </eco-fab-speed-dial-actions>
+          </eco-fab-speed-dial>
+      </div>
+      <div class="text col-8">
+        <strong>{{shirt.price | currency}}</strong>
+      </div>
+      <div class="icon-edit col-2"></div>
+    </div>
+  </div>
+  <div class="shirt-cart-overlay" [hidden]="!open"></div>
+</div>
