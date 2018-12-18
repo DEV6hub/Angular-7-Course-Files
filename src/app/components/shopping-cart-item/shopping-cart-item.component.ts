@@ -81,10 +81,7 @@ export class ShoppingCartItemComponent implements OnInit, AfterContentInit {
     this.quantityChange.emit(this.item);
   }
 
-  removeCartItem(item: ShoppingItem): any {
-    this.shoppingCartService.removeFromShoppingCart(item);
-    this.removeItem.emit(this.shoppingItemForm);
-  }
+
 
   getStyleImagePath(shirt: Shirt): string {
     return this.shirtService.getStyleImagePath(shirt);
