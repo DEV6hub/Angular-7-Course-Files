@@ -1,0 +1,68 @@
+{
+  "tshirts": [
+    {
+      "id": 1,
+      "name": "Happy Shirt",
+      "type": "Womens Fine Jersey Short Sleeve",
+      "price": 14.99,
+      "imgSrc": "/assets/images/WomensShirtDesigns-3.jpg",
+      "gender": "F"
+    },
+    {
+      "id": 3,
+      "name": "Emoji Shirt",
+      "type": "Womens Fine Jersey Short Sleeve",
+      "price": 15.99,
+      "imgSrc": "/assets/images/WomensShirtDesigns-2.jpg",
+      "gender": "F"
+    },
+    {
+      "id": 4,
+      "name": "Falcon on black",
+      "type": "Mens Fine Jersey Short Sleeve",
+      "price": 19.99,
+      "imgSrc": "/assets/images/MensShirtDesigns-3.jpg",
+      "gender": "M"
+    },
+    {
+      "id": 5,
+      "name": "Falcon on white",
+      "type": "Mens Fine Jersey Short Sleeve",
+      "price": 19.99,
+      "imgSrc": "/assets/images/MensShirtDesigns-4.jpg",
+      "gender": "M"
+    },
+    {
+      "id": 6,
+      "name": "Office Space",
+      "type": "Womens Fine Jersey Short Sleeve",
+      "price": 14.99,
+      "imgSrc": "/assets/images/WomensShirtDesigns-1.jpg",
+      "gender": "F"
+    },
+    {
+      "id": 7,
+      "name": "Smile",
+      "type": "Mens Fine Jersey Short Sleeve",
+      "price": 15.99,
+      "imgSrc": "/assets/images/MensShirtDesigns-1.jpg",
+      "gender": "M"
+    },
+    {
+      "id": 8,
+      "name": "Dabbing Skeleton",
+      "type": "Mens Fine Jersey Short Sleeve",
+      "price": 19.99,
+      "imgSrc": "/assets/images/MensShirtDesigns-5.jpg",
+      "gender": "M"
+    },
+    {
+      "id": 9,
+      "name": "Test Shirt",
+      "type": "Mens Fine Jersey Short Sleeve",
+      "price": 21.99,
+      "imgSrc": "/assets/images/TShirtTest.jpg",
+      "gender": "M"
+    }
+  ]
+}
