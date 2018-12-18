@@ -52,7 +52,7 @@ export class SignupUserInfoComponent implements OnInit {
       this.userInfoService.addUser(userInfo);
       this.router.navigateByUrl('/catalog');
     } else {
-      window.alert('Please fill up enitre form correctly before pressing Save button.');
+      window.alert('Please fill up the form fully and then save.');
     }
   }
 }

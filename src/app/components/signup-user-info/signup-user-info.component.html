@@ -5,7 +5,7 @@
     <div class="row">
       <div class="form-group col">
         <label for="name">Name</label>
-        <input type="text" formControlName="name" class="form-control form-control-sm" ng-Control="name">
+        <input type="text" id="name" formControlName="name" class="form-control form-control-sm" ng-Control="name">
         <div class="validation-error"
           *ngIf="userInfoForm.controls.name.errors && (userInfoForm.controls.name.dirty || userInfoForm.controls.name.touched)">
           <p *ngIf="userInfoForm.controls.name.errors.required">Name is required</p>
@@ -15,7 +15,7 @@
     <div class="row">
         <div class="col">
           <label for="email">Email</label>
-          <input type="email" pattern="[^ @]*@[^ @]*" ng-Control="email" formControlName="email" class="form-control" placeholder="johnny5@nova-industries.com">
+          <input type="email" id="email" pattern="[^ @]*@[^ @]*" ng-Control="email" formControlName="email" class="form-control" placeholder="johnny5@nova-industries.com">
           <div class="validation-error" *ngIf="userInfoForm.controls.email.errors && (userInfoForm.controls.email.dirty || userInfoForm.controls.email.touched)">
             <p *ngIf="userInfoForm.controls.email.errors.required">Email is required</p>
             <p *ngIf="userInfoForm.controls.email.errors.pattern">Email must contain at least the @ character</p>
@@ -25,14 +25,14 @@
     <div class="row">
       <div class="form-group col">
         <label for="address1">Address 1</label>
-        <input type="text" formControlName="address1" ng-Control="address1" class="form-control form-control-sm">
+        <input type="text" id="address1" formControlName="address1" ng-Control="address1" class="form-control form-control-sm">
         <div class="validation-error" *ngIf="userInfoForm.controls.address1.errors && (userInfoForm.controls.address1.dirty || userInfoForm.controls.address1.touched)">
           <p *ngIf="userInfoForm.controls.address1.errors.required">Address1 is required</p>
        </div>
       </div>
       <div class="form-group col">
         <label for="address2">Address 2</label>
-        <input type="text" formControlName="address2" ng-Control="address2" class="form-control form-control-sm">
+        <input type="text" id="address2" formControlName="address2" ng-Control="address2" class="form-control form-control-sm">
         <div class="validation-error" *ngIf="userInfoForm.controls.address2.errors && (userInfoForm.controls.address2.dirty || userInfoForm.controls.address2.touched)">
           <p *ngIf="userInfoForm.controls.address2.errors.required">Address2 is required</p>
        </div>
@@ -41,7 +41,7 @@
     <div class="row">
       <div class="form-group col">
         <label for="phone">Phone Number</label>
-        <input type="text" formControlName="phone" ng-Control="phone" pattern="^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$" class="form-control form-control-sm">
+        <input type="text" id="phone" formControlName="phone" ng-Control="phone" pattern="^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$" class="form-control form-control-sm">
         <div class="validation-error" *ngIf="userInfoForm.controls.phone.errors && (userInfoForm.controls.phone.dirty || userInfoForm.controls.phone.touched)">
           <p *ngIf="userInfoForm.controls.phone.errors.required">Phone is required</p>
           <p *ngIf="userInfoForm.controls.phone.errors.pattern">Phone must follow standard pattern</p>
@@ -49,7 +49,7 @@
       </div>
       <div class="form-group col">
         <label for="city">City</label>
-        <input type="text" formControlName="city" ng-Control="city" class="form-control form-control-sm">
+        <input type="text" id="city" formControlName="city" ng-Control="city" class="form-control form-control-sm">
         <div class="validation-error" *ngIf="userInfoForm.controls.city.errors && (userInfoForm.controls.city.dirty || userInfoForm.controls.city.touched)">
           <p *ngIf="userInfoForm.controls.city.errors.required">City is required</p>
        </div>
@@ -59,7 +59,7 @@
       <div class="form-group col-6">
         <label for="country">Country</label>
         <br>
-        <select formControlName="country"  ng-Control="country" class="form-control form-control-sm" (change)="selectCountry($event.currentTarget.value)">
+        <select formControlName="country" id="country" ng-Control="country" class="form-control form-control-sm" (change)="selectCountry($event.currentTarget.value)">
           <option value="" selected>Select</option>
           <option *ngFor="let country of countries" [value]="country" (click)="selectCountry(country)">{{country}}</option>
         </select>
@@ -70,7 +70,7 @@
       <div class="form-group col-3">
         <label for="province">Province</label>
         <br>
-        <select formControlName="province" ng-Control="province" class="form-control form-control-sm" (change)="selectState($event.currentTarget.value)">
+        <select formControlName="province" id="province" ng-Control="province" class="form-control form-control-sm" (change)="selectState($event.currentTarget.value)">
           <option value="">Select</option>
           <option *ngFor="let state of states[selectedCountry]" [value]="state" (click)="selectState(state)">{{state}}</option>
         </select>
@@ -80,7 +80,7 @@
       </div>
       <div class="form-group col-3">
         <label for="zip">Postal Code</label>
-        <input type="text" formControlName="postal"  ng-Control="postal" class="form-control form-control-sm">
+        <input type="text" id="postal" formControlName="postal"  ng-Control="postal" class="form-control form-control-sm">
         <div class="validation-error" *ngIf="userInfoForm.controls.postal.errors && (userInfoForm.controls.postal.dirty || userInfoForm.controls.postal.touched)">
           <p *ngIf="userInfoForm.controls.postal.errors.required">Postal is required</p>
        </div>
