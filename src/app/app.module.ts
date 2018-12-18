@@ -11,7 +11,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { CatalogComponent } from './components/catalog/catalog.component';
 import { ShirtComponent } from './components/shirt/shirt.component';
 
-
+import { ShirtGenderPipe } from './filters/shirt-filter.pipe';
 // For material
 import { MatTabsModule } from '@angular/material';
 import { MatButtonModule } from '@angular/material';
@@ -36,7 +36,6 @@ import { ColourPickerComponent } from './components/colour-picker/colour-picker.
 import { GraphicsPickerComponent } from './components/graphics-picker/graphics-picker.component';
 import { TextPickerComponent } from './components/text-picker/text-picker.component';
 import { GraphicTextEditorComponent } from './components/graphic-text-editor/graphic-text-editor.component';
-import { UserInfoService } from './core/user-info.service';
 import { HttpModule, Http } from '@angular/http';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { BackgroundChangeDirective } from './customDirectives/background-change.directive';
@@ -79,6 +78,7 @@ const routes: Routes = [
     SignupUserInfoComponent,
     CatalogComponent,
     ShirtComponent,
+    ShirtGenderPipe,
     ShoppingCartComponent,
     ShoppingCartItemComponent,
     SizeSelectComponent,
@@ -121,7 +121,6 @@ const routes: Routes = [
   })
   ],
   providers: [
-    UserInfoService,
     AuthGuard,
     AuthGuardService,
     CanvasScalerFactoryService
