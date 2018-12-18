@@ -14,7 +14,7 @@ const routes: Routes = [
     path: '',
     component: AllStyleOptionsComponent,
     canActivateChild: [AuthchildrenGuard],
-    canDeactivate: [CanDeactivateGuard],
+    //canDeactivate: [CanDeactivateGuard],
     resolve: { message: UsernameResolver },
     children: [
       {path: 'allGraphics', component: AllGraphicsComponent,
