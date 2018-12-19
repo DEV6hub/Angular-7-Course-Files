@@ -49,10 +49,9 @@ export class SignupUserInfoComponent implements OnInit {
 
   save(userInfo) {
     if (this.userInfoForm.valid) {
+      //this.userInfo = new UserInfo(userInfo);
       this.userInfoService.addUser(userInfo);
       this.router.navigateByUrl('/catalog');
-    } else {
-      window.alert('Please fill up the form fully and then save.');
     }
   }
 }
