@@ -10,7 +10,6 @@
       </a>
     </div>
     <div class="row cart-btn-container">
-        <button type="button" class="primary-btn nav-btn" routerLink='/tshirtsDatabase'>TSHIRTS DATABASE</button>
         <button type="button" class="primary-btn nav-btn" routerLink='/allStyleOptions'>STYLE OPTIONS</button>
         <input type="text" class="design-name-input nav-btn" [value]="designName" (input)="designName=$event.target.value" placeholder="design name" [hidden]="!showDesignShirt">
         <div class="validation-error">
