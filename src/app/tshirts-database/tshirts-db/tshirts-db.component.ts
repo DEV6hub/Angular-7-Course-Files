@@ -1,30 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpModule, Http, URLSearchParams, Headers, RequestOptions} from '@angular/http';
-import {trigger, state, style, animate, transition, group} from '@angular/animations';
+import { HttpModule, Http, URLSearchParams, Headers, RequestOptions } from '@angular/http';
 
 @Component({
   selector: 'app-tshirts-db',
   templateUrl: './tshirts-db.component.html',
-  animations: [
-    trigger('heroState', [
-      state('M', style({
-        backgroundColor: 'blue',
-        transform: 'scale(1)'
-      })),
-      state('F',   style({
-        backgroundColor: 'pink',
-        transform: 'scale(1.1)'
-      })),
-      transition('M => F', animate('100ms ease-in')),
-      transition('F => M', animate('100ms ease-out'))
-    ])
-  ]
 })
-export class TshirtsDbComponent {
 
-  //apiRoot = 'http://httpbin.org';
+export class TshirtsDbComponent {
   apiRoot = 'http://localhost:4000/tshirts';
- results;
+  results;
 
   constructor(private http: Http) { }
 
@@ -42,7 +26,7 @@ export class TshirtsDbComponent {
     const url = `${this.apiRoot}`;
     const search = new URLSearchParams();
     search.set('name', 'Happy Shirt');
-    this.http.get(url, {search}).subscribe(res => {
+    this.http.get(url, { search }).subscribe(res => {
       console.log(res.json());
       this.results = res.json();
     });
@@ -74,8 +58,8 @@ export class TshirtsDbComponent {
       'gender': 'M'
     };
     this.http.put(url, data).subscribe(res => {
-        console.log(res.json());
-      } );
+      console.log(res.json());
+    });
   }
 
   doDELETE() {
@@ -84,18 +68,18 @@ export class TshirtsDbComponent {
     const search = new URLSearchParams();
     search.set('id', '2');
     this.http.delete(url).subscribe(res => {
-        console.log(res.json());
-      });
+      console.log(res.json());
+    });
   }
 
   doGETAsPromise() {
     console.log('GET AS PROMISE');
     const url = `${this.apiRoot}`;
     this.http.get(url).toPromise()
-    .then(res => {
-      console.log(res.json());
-      this.results = res.json();
-    });
+      .then(res => {
+        console.log(res.json());
+        this.results = res.json();
+      });
   }
 
   doGETAsPromiseError() {
@@ -133,7 +117,7 @@ export class TshirtsDbComponent {
     const url = `${this.apiRoot}`;
     this.http.get(url, opts).subscribe(
       res => console.log(res.json()),
-      msg =>  {
+      msg => {
         console.error(`Error: ${msg.status} ${msg.statusText}`);
         alert(`Error: ${msg.status} ${msg.statusText}`);
       }
