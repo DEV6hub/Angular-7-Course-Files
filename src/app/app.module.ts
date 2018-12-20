@@ -62,6 +62,10 @@ const routes: Routes = [
     canLoad: [ AuthGuardService ]
   },
   {
+    path: 'tshirtsDatabase',
+    loadChildren: 'app/tshirts-database/tshirts-database.module#TShirtsDatabaseModule',
+  },
+  {
     path: 'catalog', component: CatalogComponent,
     canActivate: [AuthGuard]
   }

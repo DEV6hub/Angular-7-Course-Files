@@ -10,8 +10,9 @@ export class AuthGuardService implements CanLoad {
     const url: string = route.path;
     if (this.userInfoService.isLoggedIn) {
       return true;
+    } else {
+      this.router.navigateByUrl('/home');
+      return false;
     }
-    this.router.navigate([url]);
-    return false;
   }
 }
