@@ -23,7 +23,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { ShoppingCartItemComponent } from './components/shopping-cart-item/shopping-cart-item.component';
 import { SizeSelectComponent } from './shared/size-select.component';
-import {ProgressBarComponent} from './components/progress-bar.component';
+import { ProgressBarComponent } from './components/progress-bar.component';
 import { EcoFabSpeedDialModule } from '@ecodev/fab-speed-dial';
 import { ClickOutsideModule } from 'ng-click-outside';
 import { ShippingInfoComponent } from './components/shipping-info/shipping-info.component';
@@ -43,12 +43,10 @@ import { BackgroundChangeDirective } from './customDirectives/background-change.
 import { StructuralUnlessDirective } from './customDirectives/structural-unless.directive';
 import { AuthGuard } from './core/auth.guard';
 import { AuthGuardService } from './core/auth-guard.service';
-import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 // AoT requires an exported function for factories
-export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http);
-}
+
 import { CanvasScalerFactoryService } from './shared/canvas-scaler';
 
 
@@ -59,7 +57,7 @@ const routes: Routes = [
   {
     path: 'allStyleOptions',
     loadChildren: 'app/style-gallery/style-gallery.module#StyleGalleryModule',
-    canLoad: [ AuthGuardService ]
+    canLoad: [AuthGuardService]
   },
   {
     path: 'tshirtsDatabase',
@@ -100,9 +98,9 @@ const routes: Routes = [
     BrowserModule,
     HttpModule,
     RouterModule.forRoot(routes,
-    {
-      preloadingStrategy: PreloadAllModules
-    }),
+      {
+        preloadingStrategy: PreloadAllModules
+      }),
     BrowserAnimationsModule,
     MatTabsModule,
     MatButtonModule,
@@ -113,13 +111,7 @@ const routes: Routes = [
     EcoFabSpeedDialModule,
     ClickOutsideModule,
     HttpClientModule,
-    TranslateModule.forRoot({
-      loader: {
-          provide: TranslateLoader,
-          useFactory: HttpLoaderFactory,
-          deps: [HttpClient]
-      }
-  })
+    
   ],
   providers: [
     UserInfoService,
