@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { UserInfo } from '../../shared/user-info';
 import { FormBuilder, FormControl, Validators, FormGroup } from '@angular/forms';
 import { UserInfoService } from '../../core/user-info.service';
-import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-signup-user-info',
@@ -20,10 +19,10 @@ export class SignupUserInfoComponent implements OnInit {
   selectedState = 'Select';
   contactIntro = 'Welcome to the club, where can we ship your shirts to? You can always provide this information at checkout';
   userInfo: UserInfo;
-  htmlSnippet = `Testing a <script>alert("tag")</script> <b>tag</b>`;
-  constructor(private sanitizer: DomSanitizer, private router: Router, private fb: FormBuilder, private userInfoService: UserInfoService) {
+  
+  constructor(private router: Router, private fb: FormBuilder, private userInfoService: UserInfoService) {
 
-     }
+  }
 
   ngOnInit() {
     this.userInfoForm = this.fb.group({
