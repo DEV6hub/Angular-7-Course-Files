@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { UserInfo } from '../../shared/user-info';
 import { FormBuilder, FormControl, Validators, FormGroup } from '@angular/forms';
 import { UserInfoService } from '../../core/user-info.service';
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-signup-user-info',
@@ -19,8 +20,8 @@ export class SignupUserInfoComponent implements OnInit {
   selectedState = 'Select';
   contactIntro = 'Welcome to the club, where can we ship your shirts to? You can always provide this information at checkout';
   userInfo: UserInfo;
-
-  constructor(private router: Router, private fb: FormBuilder, private userInfoService: UserInfoService) {
+  htmlSnippet = `Testing a <script>alert("tag")</script> <b>tag</b>`;
+  constructor(private sanitizer: DomSanitizer, private router: Router, private fb: FormBuilder, private userInfoService: UserInfoService) {
 
      }
 
@@ -49,10 +50,9 @@ export class SignupUserInfoComponent implements OnInit {
 
   save(userInfo) {
     if (this.userInfoForm.valid) {
+      //this.userInfo = new UserInfo(userInfo);
       this.userInfoService.addUser(userInfo);
       this.router.navigateByUrl('/catalog');
-    } else {
-      window.alert('Please fill up the form fully and then save.');
     }
   }
 }
